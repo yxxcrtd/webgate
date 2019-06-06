@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.digitalpublishing.po.SysRole" table="SYS_ROLE">
+        <id name="id" type="java.lang.String">
+            <column name="ROLE_ID" length="32">
+            	<comment>角色ID</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="ROLE_NAME" length="30">
+            	<comment>角色名称</comment>
+            </column>
+        </property>
+        <property name="desc" type="text">
+            <column name="ROLE_DUTY">
+            	<comment>角色描述</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="ROLE_STATUS">
+            	<comment>角色状态：1-在用 2-停用（角色状态决定 用户状态）</comment>
+            </column>
+        </property>
+        <many-to-one name="system" class="cn.digitalpublishing.po.SysSystem"
+			fetch="select" lazy="false">
+			<column name="SYSTEM_ID" />
+		</many-to-one>
+		<set name="roleResourceRelationshipSet" inverse="true">
+			<key>
+				<column name="ROLE_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysRoleResourceRelationship" />
+		</set>
+		<set name="roleFunctionRelationshipSet" inverse="true">
+			<key>
+				<column name="ROLE_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysRoleFunctionRelationship" />
+		</set>
+		<set name="roleAccountRelationshipSet" inverse="true">
+			<key>
+				<column name="ROLE_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysRoleAccountRelationship" />
+		</set>
+    </class>
+</hibernate-mapping>

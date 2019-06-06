@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.digitalpublishing.po.SysModule" table="SYS_MODULE">
+        <id name="id" type="java.lang.String">
+            <column name="MODULE_ID" length="32">
+            	<comment>模块ID</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="MODULE_NAME" length="200">
+            	<comment>模块名称</comment>
+            </column>
+        </property>
+        <property name="i18n" type="java.lang.String">
+            <column name="MODULE_I18N" length="10">
+            	<comment>是否国际化</comment>
+            </column>
+        </property>
+        <property name="link" type="java.lang.String">
+            <column name="MODULE_LINK" length="2000">
+            	<comment>模块链接</comment>
+            </column>
+        </property>
+        <property name="more" type="java.lang.String">
+            <column name="MODULE_MORE" length="2000">
+            	<comment>模块更多链接</comment>
+            </column>
+        </property>
+        <property name="icon" type="java.lang.String">
+            <column name="MODULE_ICON" length="2000">
+            	<comment>模块图标</comment>
+            </column>
+        </property>
+        <property name="must" type="java.lang.Integer">
+            <column name="MODULE_MUST">
+            	<comment>模块是否必须</comment>
+            </column>
+        </property>
+        <property name="height" type="java.lang.Double">
+            <column name="MODULE_HEIGHT">
+            	<comment>模块高度</comment>
+            </column>
+        </property>
+        <property name="width" type="java.lang.Double">
+            <column name="MODULE_WIDTH">
+            	<comment>模块宽度</comment>
+            </column>
+        </property>
+        <many-to-one name="component" class="cn.digitalpublishing.po.SysComponent"
+			fetch="select" lazy="false">
+			<column name="COMPONENT_ID" />
+		</many-to-one>
+		<set name="accountModuleRelationshipSet" inverse="true">
+			<key>
+				<column name="MODULE_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysAccountModuleRelationship" />
+		</set>
+    </class>
+</hibernate-mapping>

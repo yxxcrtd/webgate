@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.digitalpublishing.po.SysAccount" table="SYS_ACCOUNT">
+        <id name="id" type="java.lang.String">
+            <column name="ACCOUNT_ID" length="32">
+            	<comment>账户ID</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="ACCOUNT_NAME" length="200">
+            	<comment>账户名称</comment>
+            </column>
+        </property>
+        <property name="pass" type="java.lang.String">
+            <column name="ACCOUNT_PWD" length="200">
+            	<comment>账户密码</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="ACCOUNT_STATUS">
+            	<comment>账户状态：1-在用 2-停用</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="ACCOUNT_TYPE">
+            	<comment>账户类型：1-本地账户 2-Sina账户</comment>
+            </column>
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="ACCOUNT_LEVEL">
+            	<comment>账户级别：1-超级用户（不能维护不能删除） 2-普通用户（可维护可删除）</comment>
+            </column>
+        </property>
+        <property name="encryption" type="java.lang.Integer">
+            <column name="ACCOUNT_ENCRYPTION">
+            	<comment>加密 1-不加密 2-加密</comment>
+            </column>
+        </property>
+        <property name="employeeId" type="java.lang.String">
+            <column name="EMPLOYEE_ID" length="32">
+            	<comment>员工Id</comment>
+            </column>
+        </property>
+		<set name="accountModuleRelationshipSet" inverse="true">
+			<key>
+				<column name="ACCOUNT_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysAccountModuleRelationship" />
+		</set>
+		<set name="roleAccountRelationshipSet" inverse="true">
+			<key>
+				<column name="ACCOUNT_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysRoleAccountRelationship" />
+		</set>
+    </class>
+</hibernate-mapping>

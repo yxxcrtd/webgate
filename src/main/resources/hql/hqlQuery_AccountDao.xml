@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<!-- 传入参数xml文件格式如下: <?xml version="1.0" encoding="UTF-8"?>" <web-query> 
+		<queryparm> <ccsno>%</ccsno> <shipname>%</shipname> <stjobno>%</stjobno> 
+		<builder>%</builder> <yardno>%</yardno> <projectid>%</projectid> </queryparm> 
+		</web-query> -->
+	<!-- 主界面管理查询模块 -->
+	<dao id="cn.digitalpublishing.dao.AccountDao">
+		<query>
+			<id>getList</id>
+			<method>getList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,name,pass,type,level,status</properties>
+			<fields>a.id,a.name,a.pass,a.type,a.level,a.status</fields>
+			<hql>from SysAccount a </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+					<!-- a.id <![CDATA[<]]>> ? -->
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.type = ?</hql>
+				</condition>
+				<condition id="level" describe="等级">
+					<params type="param">
+						<param name="level" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.level = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.name</order>
+			<className>cn.digitalpublishing.po.SysAccount</className>
+		</query>
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysAccount a </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.type = ?</hql>
+				</condition>
+				<condition id="level" describe="等级">
+					<params type="param">
+						<param name="level" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.level = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.name</order>
+			<className>cn.digitalpublishing.po.SysAccount</className>
+		</query>
+		<query>
+			<id>getPagingList</id>
+			<method>getPagingList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,name,pass,type,level,status</properties>
+			<fields>a.id,a.name,a.pass,a.type,a.level,a.status</fields>
+			<hql>from SysAccount a </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.type = ?</hql>
+				</condition>
+				<condition id="level" describe="等级">
+					<params type="param">
+						<param name="level" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.level = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.name</order>
+			<className>cn.digitalpublishing.po.SysAccount</className>
+		</query>
+		<query>
+			<id>getByUidAndPwd</id>
+			<method>getByUidAndPwd</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,name,pass,type,level,status</properties>
+			<fields>a.id,a.name,a.pass,a.type,a.level,a.status</fields>
+			<hql>from SysAccount a </hql>
+			<conditions>
+				<condition id="username" describe="名称">
+					<params type="param">
+						<param name="username" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="password" describe="密码">
+					<params type="param">
+						<param name="password" type="java.lang.String"></param>
+					</params>
+					<hql> a.pass = ?</hql>
+				</condition>
+                <condition id="status" describe="状态">
+                    <params type="param">
+                        <param name="status" type="java.lang.Integer"></param>
+                    </params>
+                    <hql> a.status = ?</hql>
+                </condition>
+			</conditions>
+			<group></group>
+			<order>order by a.name</order>
+			<className>cn.digitalpublishing.po.SysAccount</className>
+		</query>
+		<query>
+			<id>getByEmpId</id>
+			<method>getByEmpId</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,name,pass,type,level,status,encryption,employeeId</properties>
+			<fields>a.id,a.name,a.pass,a.type,a.level,a.status,a.encryption,employeeId</fields>
+			<hql>from SysAccount a </hql>
+			<conditions>
+				<condition id="employeeId" describe="员工Id">
+					<params type="param">
+						<param name="employeeId" type="java.lang.String"></param>
+					</params>
+					<hql> a.employeeId = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.name</order>
+			<className>cn.digitalpublishing.po.SysAccount</className>
+		</query>
+	</dao>
+</web-query>

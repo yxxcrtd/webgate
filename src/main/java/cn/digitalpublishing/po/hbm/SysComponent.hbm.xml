@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.digitalpublishing.po.SysComponent" table="SYS_COMPONENT">
+        <id name="id" type="java.lang.String">
+            <column name="COMPONENT_ID" length="32">
+            	<comment>组件ID</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="COMPONENT_NAME" length="50">
+            	<comment>组件名称</comment>
+            </column>
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="COMPONENT_CODE" length="20">
+            	<comment>组件编号</comment>
+            </column>
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="COMPONENT_ADDR" length="500">
+            	<comment>组件地址</comment>
+            </column>
+        </property>
+        <property name="port" type="java.lang.String">
+            <column name="COMPONENT_PORT" length="10">
+            	<comment>组件端口</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="COMPONENT_STATUS">
+            	<comment>组件状态：1-有效 2-无效</comment>
+            </column>
+        </property>
+        <many-to-one name="system" class="cn.digitalpublishing.po.SysSystem"
+			fetch="select" lazy="false">
+			<column name="SYSTEM_ID" />
+		</many-to-one>
+		<set name="resourceSet" inverse="true">
+			<key>
+				<column name="COMPONENT_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysResource" />
+		</set>
+		<set name="modules" inverse="true">
+			<key>
+				<column name="COMPONENT_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysModule" />
+		</set>
+    </class>
+</hibernate-mapping>

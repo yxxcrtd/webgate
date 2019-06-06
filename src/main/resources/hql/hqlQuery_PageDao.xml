@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<!-- 传入参数xml文件格式如下: <?xml version="1.0" encoding="UTF-8"?>" <web-query> 
+		<queryparm> <ccsno>%</ccsno> <shipname>%</shipname> <stjobno>%</stjobno> 
+		<builder>%</builder> <yardno>%</yardno> <projectid>%</projectid> </queryparm> 
+		</web-query> -->
+	<!-- 主界面管理查询模块 -->
+	<dao id="cn.digitalpublishing.dao.PageDao">
+		<query>
+			<id>getList</id>
+			<method>getList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,name,code,path,resource.id,resource.name,special</properties>
+			<fields>a.id,a.name,a.code,(case when a.special is null or a.special ='' then a.path else concat(concat(a.path,'#'),a.special) end) as path,b.id,b.name,a.special</fields>
+			<hql>from SysPage a left join a.resource b </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="code" describe="编码">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql>a.code = ?</hql>
+				</condition>
+				<condition id="resourceId" describe="资源id">
+					<params type="param">
+						<param name="resourceId" type="java.lang.String"></param>
+					</params>
+					<hql>b.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.code</order>
+			<className>cn.digitalpublishing.po.SysPage</className>
+		</query>
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysPage a left join a.resource b </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="code" describe="编码">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql>a.code = ?</hql>
+				</condition>
+				<condition id="resourceId" describe="资源id">
+					<params type="param">
+						<param name="resourceId" type="java.lang.String"></param>
+					</params>
+					<hql>b.id = ?</hql>
+				</condition>
+				<condition id="uniqueId" describe="pageID">
+					<params type="param">
+						<param name="uniqueId" type="java.lang.String"></param>
+					</params>
+					<hql><![CDATA[a.id <> ?]]></hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.code</order>
+			<className>cn.digitalpublishing.po.SysPage</className>
+		</query>
+		<query>
+			<id>getPagingList</id>
+			<method>getPagingList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,name,code,path,resource.id,resource.name,special</properties>
+			<fields>a.id,a.name,a.code,(case when a.special is null or a.special ='' then a.path else concat(concat(a.path,'#'),a.special) end) as path,b.id,b.name,a.special</fields>
+			<hql>from SysPage a left join a.resource b </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="code" describe="编码">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql>a.code = ?</hql>
+				</condition>
+				<condition id="resourceId" describe="资源id">
+					<params type="param">
+						<param name="resourceId" type="java.lang.String"></param>
+					</params>
+					<hql>b.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.code</order>
+			<className>cn.digitalpublishing.po.SysPage</className>
+		</query>
+	</dao>
+</web-query>

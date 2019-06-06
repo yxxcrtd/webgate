@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<!-- 编码Filter 加载配置 Start -->
+	<filter>
+		<filter-name>SetCharacterEncoding</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SetCharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 编码Filter 加载配置 End -->
+	
+	<!-- 语言Filter start -->
+	<filter>
+		<filter-name>LanguageFilter</filter-name>
+		<filter-class>
+			cn.digitalpublishing.filter.LanguageFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LanguageFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 语言Filter end -->
+	
+	<!-- AccessFilter 加载配置 Start -->
+	<filter>
+		<filter-name>AccessFilter</filter-name>
+		<filter-class>
+			cn.com.daxtech.framework.web.filter.AccessFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AccessFilter</filter-name>
+		<url-pattern>/pages/*</url-pattern>
+	</filter-mapping>
+	<!-- AccessFilter 加载配置 End -->
+	
+	<!-- Spring 配置文件加载 Start -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/classes/appContext*.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<!-- Spring 配置文件加载 End -->
+	<listener>
+		<listener-class>
+			cn.digitalpublishing.listener.SessionListener
+		</listener-class>
+	</listener>
+	<!-- 验证码 Start -->
+	<servlet>
+		<servlet-name>CheckCode</servlet-name>
+		<servlet-class>cn.digitalpublishing.servlet.CheckCode</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckCode</servlet-name>
+		<url-pattern>/CheckCode</url-pattern>
+	</servlet-mapping>
+	<!-- 验证码 End -->
+	
+	<!-- Services 加载配置 Start -->
+	<servlet>
+		<servlet-name>ImportDataServlet</servlet-name>
+		<servlet-class>
+			cn.digitalpublishing.servlet.ImportDataServlet
+		</servlet-class>
+		<init-param>
+			<param-name>path</param-name>
+            <!-- windows平台 -->
+            <!-- <param-value>E:/SVN/LegalPressERP/trunk/07_Deploy/Release_Import_Data/webgate.xlsx</param-value> -->
+            <!-- linux平台 -->
+            <param-value>/home/SVN/LegalPressERP/trunk/07_Deploy/Release_Import_Data/webgate.xlsx</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImportDataServlet</servlet-name>
+		<url-pattern>/ImportDataServlet</url-pattern>
+	</servlet-mapping>
+	<!-- Services 加载配置 End -->
+
+	<!-- Services 加载配置 Start -->
+	<servlet>
+		<servlet-name>InitService</servlet-name>
+		<servlet-class>
+			cn.com.daxtech.framework.web.init.InitServiceConfig
+		</servlet-class>
+		<init-param>
+			<param-name>services</param-name>
+			<param-value>/WEB-INF/classes/service.properties</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitService</servlet-name>
+		<url-pattern>/InitService</url-pattern>
+	</servlet-mapping>
+	<!-- Services 加载配置 End -->
+	
+	<!-- 参数加载 Start -->
+	<servlet>
+		<servlet-name>InitParam</servlet-name>
+		<servlet-class>
+			cn.com.daxtech.framework.web.init.ParamConfig
+		</servlet-class>
+		<init-param>
+			<param-name>Path</param-name>
+			<param-value>/WEB-INF/classes/param.properties</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitParam</servlet-name>
+		<url-pattern>/InitParam</url-pattern>
+	</servlet-mapping>
+	<!-- 参数加载 End -->
+	
+	<!-- Authority 加载配置 Start -->
+	<servlet>
+		<servlet-name>Authority</servlet-name>
+		<servlet-class>
+			cn.com.daxtech.framework.web.init.InitAuthority
+		</servlet-class>
+		<init-param>
+			<param-name>initconfig</param-name>
+			<param-value>
+				/WEB-INF/classes/authority.xml
+			</param-value>
+		</init-param>
+		<init-param>
+          <param-name>adaptive</param-name>
+          <param-value>true</param-value>
+      	</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Authority</servlet-name>
+		<url-pattern>/Authority</url-pattern>
+	</servlet-mapping>
+	<!-- Authority 加载配置 End -->
+	
+	<!-- 访问权限控制  配置 Start -->
+	<filter>
+	    <filter-name>permissionFilter</filter-name>
+	    <filter-class>
+			cn.digitalpublishing.filter.ResourceAccessFilter
+		</filter-class>
+	    <init-param>
+	      <param-name>resourceURL</param-name>
+	      <param-value>http://127.0.0.1:8080/webgate/pages/rest/getPermissions</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>functionURL</param-name>
+	      <param-value>http://127.0.0.1:8080/webgate/pages/rest/getFunctions</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>promptURL</param-name>
+	      <param-value>http://127.0.0.1:8080/webgate/pages/common/prompt</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>functionMapName</param-name>
+	      <param-value>functionMap</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>pt_ticket</param-name>
+	      <param-value>ticket</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>pt_role_id</param-name>
+	      <param-value>roleId</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>pt_msg</param-name>
+	      <param-value>pt_msg</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>pt_msg_code</param-name>
+	      <param-value>pt_msg_code</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>resourceFilterParam</param-name>
+	      <param-value>pt_rtype</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>resourceFilterType</param-name>
+	      <param-value>m</param-value>
+	    </init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>permissionFilter</filter-name>
+	    <url-pattern>/pages/*</url-pattern>
+	</filter-mapping>
+	<!-- 访问权限控制  配置 End -->
+	
+	<!-- Log4j 加载配置 Start -->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/classes/log4j.properties
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>6000</param-value>
+	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>webgate</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+	<!-- Log4j 加载配置 End -->
+	
+	<!-- 加载xml文件，初始化hql -->
+	<servlet>
+		<servlet-name>queryxmlinit</servlet-name>
+		<servlet-class>
+			cn.com.daxtech.framework.web.init.QueryXmlInit
+		</servlet-class>
+		<init-param>
+			<param-name>path</param-name>
+			<param-value>
+				/WEB-INF/classes/hql
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>suffix</param-name>
+			<param-value>
+				.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<!-- 加载xml文件，初始化hql 结束 -->
+
+	<!-- SpringMVC Start -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/classes/mvc-config.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.json</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.xml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.xls</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.rar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.zip</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.ico</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.woff</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.ttf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.eot</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.otf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.svg</url-pattern>
+	</servlet-mapping>
+	<!-- SpringMVC End -->
+	
+	<welcome-file-list>
+		<welcome-file>/pages/login.jsp</welcome-file>
+		<!-- <welcome-file>/pages/index.jsp</welcome-file> -->
+	</welcome-file-list>
+	<jsp-config>
+		<taglib>
+			<taglib-uri>daxtech-taglib.tld</taglib-uri>
+			<taglib-location>
+				/WEB-INF/tld/daxtech-taglib.tld
+			</taglib-location>
+		</taglib>
+	</jsp-config>
+	<!-- Define the basename for a resource bundle for I18N -->
+	<context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.localizationContext
+		</param-name>
+		<param-value>ApplicationResources</param-value>
+	</context-param> 
+	
+  	<!-- i18n Start -->
+	<servlet>
+		<servlet-name>i18n</servlet-name>
+		<servlet-class>cn.com.daxtech.framework.Internationalization.LangConfig</servlet-class>
+		<init-param>
+      		<param-name>config</param-name>
+      		<param-value>/WEB-INF/classes/i18n.properties</param-value>
+    	</init-param>
+    	<init-param>
+      		<param-name>default</param-name>
+      		<param-value>default</param-value>
+    	</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>i18n</servlet-name>
+		<url-pattern>/i18n</url-pattern>
+	</servlet-mapping>
+	<!-- i18n End -->
+	
+  	<!-- dwr配置 Start -->
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+		<init-param>
+			<description></description>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>crossDomainSessionSecurity</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+  	<!-- dwr配置 End -->
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+</web-app>

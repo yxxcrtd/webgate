@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="daoFacade" class="cn.digitalpublishing.facade.DaoFacade">
+		
+		<property name="accountDao">
+			<bean class="cn.digitalpublishing.dao.AccountDao" parent="commonDao" />
+		</property>
+		
+		<property name="componentDao">
+			<bean class="cn.digitalpublishing.dao.ComponentDao" parent="commonDao" />
+		</property>
+		
+		<property name="functionDao">
+			<bean class="cn.digitalpublishing.dao.FunctionDao" parent="commonDao" />
+		</property>
+		
+		<property name="moduleDao">
+			<bean class="cn.digitalpublishing.dao.ModuleDao" parent="commonDao" />
+		</property>
+		
+		<property name="pageDao">
+			<bean class="cn.digitalpublishing.dao.PageDao" parent="commonDao" />
+		</property>
+	
+		<property name="resourceDao">
+			<bean class="cn.digitalpublishing.dao.ResourceDao" parent="commonDao" />
+		</property>
+	
+		<property name="roleDao">
+			<bean class="cn.digitalpublishing.dao.RoleDao" parent="commonDao" />
+		</property>
+
+		<property name="systemDao">
+			<bean class="cn.digitalpublishing.dao.SystemDao" parent="commonDao" />
+		</property>
+
+		<property name="accountModuleRelationshipDao">
+			<bean class="cn.digitalpublishing.dao.AccountModuleRelationshipDao" parent="commonDao" />
+		</property>
+
+		<property name="roleAccountRelationshipDao">
+			<bean class="cn.digitalpublishing.dao.RoleAccountRelationshipDao" parent="commonDao" />
+		</property>
+
+		<property name="roleFunctionRelationshipDao">
+			<bean class="cn.digitalpublishing.dao.RoleFunctionRelationshipDao" parent="commonDao" />
+		</property>
+
+		<property name="roleResourceRelationshipDao">
+			<bean class="cn.digitalpublishing.dao.RoleResourceRelationshipDao" parent="commonDao" />
+		</property>
+	</bean>
+</beans>

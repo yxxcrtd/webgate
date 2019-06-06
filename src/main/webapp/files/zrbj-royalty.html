@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><!-- InstanceBegin template="/Templates/责任编辑.dwt" codeOutsideHTMLIsLocked="false" -->
+	<head>
+	<meta charset="utf-8" />
+	<!-- InstanceBeginEditable name="doctitle" -->
+	<title>法律社-后台管理</title>
+	<!-- InstanceEndEditable -->
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--basic styles-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<!--[if IE 7]>
+		  <link rel="stylesheet" href="css/font-awesome-ie7.min.css" />
+		<![endif]-->
+	<!--page specific plugin styles-->
+	<link rel="stylesheet" href="css/colorbox.css" type="text/css" />
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="css/chosen.css" />
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="stylesheet" href="css/bootstrap-timepicker.css" />
+    <link rel="stylesheet" href="css/daterangepicker.css" />
+    <link rel="stylesheet" href="css/colorpicker.css" />   
+   
+	<!--fonts-->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+	<!--ace styles-->
+	<link rel="stylesheet" href="css/ace.min.css" />
+	<link rel="stylesheet" href="css/ace-responsive.min.css" />
+	<link rel="stylesheet" href="css/ace-skins.min.css" />
+	<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="css/ace-ie.min.css" />
+		<![endif]-->
+	<!--inline styles if any-->
+	<!-- InstanceBeginEditable name="head" -->
+	<!-- InstanceEndEditable -->
+	<!-- InstanceParam name="内容" type="boolean" value="true" -->
+	<!-- InstanceParam name="本页用到的脚本" type="boolean" value="true" -->
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a href="#" class="brand">
+						<small>
+							<i class="icon-leaf"></i>
+							法律出版社
+					</small>
+					</a><!--/.brand-->
+
+					<ul class="nav ace-nav pull-right">
+						<li class="grey">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-tasks"></i>
+								<span class="badge badge-grey">4</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
+								<li class="nav-header">
+									<i class="icon-ok"></i>
+									4 条待完成任务
+							  </li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Software Update</span>
+											<span class="pull-right">65%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:65%" class="bar"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Hardware Upgrade</span>
+											<span class="pull-right">35%</span>
+										</div>
+
+										<div class="progress progress-mini progress-danger">
+											<div style="width:35%" class="bar"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Unit Testing</span>
+											<span class="pull-right">15%</span>
+										</div>
+
+										<div class="progress progress-mini progress-warning">
+											<div style="width:15%" class="bar"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Bug Fixes</span>
+											<span class="pull-right">90%</span>
+										</div>
+
+										<div class="progress progress-mini progress-success progress-striped active">
+											<div style="width:90%" class="bar"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										查看全部待办任务
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="purple">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-bell-alt icon-only icon-animated-bell"></i>
+								<span class="badge badge-important">8</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-closer">
+								<li class="nav-header">
+									<i class="icon-warning-sign"></i>
+									8 条通知
+							  </li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-mini no-hover btn-pink icon-comment"></i>
+												New Comments
+											</span>
+											<span class="pull-right badge badge-info">+12</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="btn btn-mini btn-primary icon-user"></i>
+										Bob just signed up as an editor ...
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-mini no-hover btn-success icon-shopping-cart"></i>
+												New Orders
+											</span>
+											<span class="pull-right badge badge-success">+8</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-mini no-hover btn-info icon-twitter"></i>
+												Followers
+											</span>
+											<span class="pull-right badge badge-info">+11</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										查看全部通知
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="green">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-envelope-alt icon-only icon-animated-vertical"></i>
+								<span class="badge badge-success">5</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
+								<li class="nav-header">
+									<i class="icon-envelope"></i>
+									5 条消息
+							  </li>
+
+								<li>
+									<a href="#">
+										<img src="images/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Alex:</span>
+												Ciao sociis natoque penatibus et auctor ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>a moment ago</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="images/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Susan:</span>
+												Vestibulum id ligula porta felis euismod ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>20 minutes ago</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="images/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Bob:</span>
+												Nullam quis risus eget urna mollis ornare ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>3:15 pm</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										查看全部消息
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="light-blue user-profile">
+							<a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+								<img class="nav-user-photo" src="images/user.jpg" alt="Jason's Photo" />
+								<span id="user_info">
+									<small>欢迎,</small>
+									责任编辑
+							</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer" id="user_menu">
+                             <li> <a href="index.html"> <i class="icon-user"></i>系统管理员</a> </li>
+                              <li> <a href="zrbj-index.html"> <i class="icon-user"></i>责任编辑</a> </li>
+                              <li> <a href="fsz-index.html"> <i class="icon-user"></i>分社长</a> </li>
+                              <li> <a href="fgld-index.html"> <i class="icon-user"></i>分管领导</a> </li>
+                              <li> <a href="zbs-index.html"> <i class="icon-user"></i>总编室</a> </li>
+                              <li> <a href="jd-index.html"> <i class="icon-user"></i>校对</a> </li>
+                              <li> <a href="mb-index.html"> <i class="icon-user"></i>美编</a> </li>
+                              <li> <a href="bq-index.html"> <i class="icon-user"></i>版权经理</a> </li>
+                              <li class="divider"></li>
+								<li> <a href="#"> <i class="icon-cog"></i> 设置 </a> </li>
+                                <li> <a href="#"> <i class="icon-user"></i> 账户 </a> </li>
+                                <li class="divider"></li>
+                                <li> <a href="login.html"> <i class="icon-off"></i> 退出 </a> </li>
+							</ul>
+						</li>
+					</ul><!--/.ace-nav-->
+				</div><!--/.container-fluid-->
+			</div><!--/.navbar-inner-->
+		</div>
+
+		<div class="container-fluid" id="main-container">
+			<a id="menu-toggler" href="#">
+				<span></span>
+			</a>
+
+			<div id="sidebar">
+				<div id="sidebar-shortcuts">
+					<div id="sidebar-shortcuts-large">
+						<button class="btn btn-small btn-success">
+							<i class="icon-signal"></i>
+						</button>
+
+						<button class="btn btn-small btn-info">
+							<i class="icon-pencil"></i>
+						</button>
+
+						<button class="btn btn-small btn-warning">
+							<i class="icon-group"></i>
+						</button>
+
+						<button class="btn btn-small btn-danger">
+							<i class="icon-cogs"></i>
+						</button>
+					</div>
+
+					<div id="sidebar-shortcuts-mini">
+						<span class="btn btn-success"></span>
+
+						<span class="btn btn-info"></span>
+
+						<span class="btn btn-warning"></span>
+
+						<span class="btn btn-danger"></span>
+					</div>
+				</div><!--#sidebar-shortcuts-->
+
+				<ul class="nav nav-list">
+<li> <a href="zrbj-index.html"> <i class="icon-dashboard"></i> <span>首页</span> </a> </li>
+<li> <a href="zrbj-topicManage.html"> <i class="icon-edit"></i> <span>选题管理</span> </a> </li>
+<li> <a href="zrbj-Query.html"> <i class=" icon-bar-chart"></i> <span>统计查询</span> </a> </li>
+<li> <a href="#" class="dropdown-toggle"> <i class="icon-bolt"></i> <span>选题立项</span> <b class="arrow icon-angle-down"></b></a> 
+    <ul class="submenu">
+       <li><a href="zrbj-project_p01.html"><i class="icon-double-angle-right"></i>单本书立项申请单</a></li>
+       <li><a href="zrbj-project_p02.html"><i class="icon-double-angle-right"></i>丛本书立项申请单</a></li>
+       <li><a href="zrbj-project_p03.html"><i class="icon-double-angle-right"></i>传统成熟书立项申请单</a></li>
+       <li><a href="zrbj-project_p04.html"><i class="icon-double-angle-right"></i>社交办单本书立项申请单</a></li>
+       <li><a href="zrbj-project_p05.html"><i class="icon-double-angle-right"></i>社交办丛书立项申请单</a></li>
+    </ul>
+</li>
+<li> <a href="zrbj-procedure_moddle.html"> <i class=" icon-tasks"></i> <span>工作流程管理</span> </a> </li>
+<li> <a href="zrbj-profitLoss_list.html"> <i class=" icon-bar-chart"></i> <span>损益管理</span> </a> </li>
+<li> <a href="zrbj-projectApproval.html"> <i class=" icon-flag"></i> <span>立项申请单</span> </a> </li>
+<li> <a href="zrbj-royalty.html"> <i class=" icon-file-text"></i> <span>版权、版税及合同管理</span> </a> </li>
+<li> <a href="#" class="dropdown-toggle"> <i class=" icon-file"></i> <span>发稿单管理</span><b class="arrow icon-angle-down"></b></a> 
+
+<ul class="submenu">
+       <li><a href="zrbj-draftManage.html"><i class="icon-double-angle-right"></i>发稿单列表</a></li>
+       <li><a href="zrbj-draftManage_p01.html"><i class="icon-double-angle-right"></i>新建发稿单</a></li>
+       <li><a href="zrbj-draftManage_p02.html"><i class="icon-double-angle-right"></i>新建委印单</a></li>
+       <li><a href="zrbj-draftManage_p03.html"><i class="icon-double-angle-right"></i>新建发排单</a></li>
+       <li><a href="zrbj-draftManage_p04.html"><i class="icon-double-angle-right"></i>新建装帧设计单</a></li>
+       <li><a href="zrbj-draftManage_p05.html"><i class="icon-double-angle-right"></i>申请书号和CIP所需信息</a></li>
+    </ul>
+</li>
+<li> <a href="zrbj-taskCheck.html"> <i class=" icon-legal"></i> <span>审查任务管理</span> </a> </li>
+<li> <a href="zrbj-firstTrial.html"> <i class=" icon-folder-open"></i> <span>初审报告管理</span> </a> </li>
+<li> <a href="zrbj-printPrice.html"> <i class=" icon-inbox"></i> <span>印数、定价折扣单</span> </a> </li>
+<li> <a href="zrbj-payManage.html"> <i class=" icon-renminbi"></i> <span>相关费用支付管理</span> </a> </li>
+<li> <a href="#" class="dropdown-toggle"> <i class=" icon-file"></i> <span>出版资源管理</span><b class="arrow icon-angle-down"></b></a> 
+
+<ul class="submenu">
+       <li><a href="zrbj-resourceManage.html"><i class="icon-double-angle-right"></i>书稿资源管理</a></li>
+       <li><a href="zrbj-resourceManage_p01.html"><i class="icon-double-angle-right"></i>图片资源管理</a></li>
+       <li><a href="zrbj-resourceManage_p02.html"><i class="icon-double-angle-right"></i>样片资源管理</a></li>
+       <li><a href="zrbj-resourceManage_p03.html"><i class="icon-double-angle-right"></i>作者管理</a></li>
+       
+    </ul>
+</li>
+<li> <a href="zrbj-productMarketing.html"> <i class=" icon-smile"></i> <span>产品营销</span> </a> </li>
+<li> <a href="#" class="dropdown-toggle"> <i class="icon-desktop"></i> <span>数字产品管理</span> <b class="arrow icon-angle-down"></b></a> 
+    <ul class="submenu">
+       <li><a href="zrbj-digitalProducts_p01.html"><i class="icon-double-angle-right"></i>数据加工</a></li>
+       <li><a href="zrbj-digitalProducts_p02.html"><i class="icon-double-angle-right"></i>市场营销</a></li>
+       <li><a href="zrbj-digitalProducts_p03.html"><i class="icon-double-angle-right"></i>产品立项</a></li>
+       <li><a href="zrbj-digitalProducts_p04.html"><i class="icon-double-angle-right"></i>统计分析</a></li>
+       <li><a href="zrbj-digitalProducts_p05.html"><i class="icon-double-angle-right"></i>内容分发</a></li>
+       <li><a href="zrbj-digitalProducts_p05.html"><i class="icon-double-angle-right"></i>产品生产</a></li>
+    </ul>
+</li>
+				<!--	<li>
+					  <a href="#" class="dropdown-toggle">
+							<i class="icon-desktop"></i>
+							<span>选题管理</span>
+
+							<b class="arrow icon-angle-down"></b>
+					  </a>
+
+						<ul class="submenu">
+							<li>
+								<a href="elements.html">
+									<i class="icon-double-angle-right"></i>
+									选题查重（模糊）
+								</a>
+							</li>
+
+							<li>
+								<a href="buttons.html">
+									<i class="icon-double-angle-right"></i>
+									选题查重（精确）
+								</a>
+							</li>
+
+							
+						</ul>
+					</li>
+
+					<li>
+					  <a href="search.html">
+							<i class="icon-picture"></i>
+							<span>统计查询</span>
+					  </a>
+					</li>
+
+					<li>
+					  <a href="#" class="dropdown-toggle">
+							<i class="icon-desktop"></i>
+							<span>选题立项</span>
+
+							<b class="arrow icon-angle-down"></b>
+					  </a>
+
+						<ul class="submenu">
+							<li>
+								<a href="elements.html">
+									<i class="icon-double-angle-right"></i>
+									单本书立项申请单
+								</a>
+							</li>
+
+							<li>
+								<a href="buttons.html">
+									<i class="icon-double-angle-right"></i>
+									丛书立项申请单
+								</a>
+							</li>
+
+							<li>
+								<a href="treeview.html">
+									<i class="icon-double-angle-right"></i>
+									传统成熟书立项申请单
+								</a>
+							</li>
+						</ul>
+					</li>
+
+				  <li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-file"></i>
+							<span>Other Pages</span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a href="pricing.html">
+									<i class="icon-double-angle-right"></i>
+									Pricing Tables
+								</a>
+							</li>
+
+							<li>
+								<a href="invoice.html">
+									<i class="icon-double-angle-right"></i>
+									Invoice
+								</a>
+							</li>
+
+							<li>
+								<a href="login.html">
+									<i class="icon-double-angle-right"></i>
+									Login &amp; Register
+								</a>
+							</li>
+
+							<li>
+
+							  <a href="error-404.html">
+									<i class="icon-double-angle-right"></i>
+									Error 404
+								</a>
+							</li>
+
+							<li>
+								<a href="error-500.html">
+									<i class="icon-double-angle-right"></i>
+									Error 500
+								</a>
+							</li>
+
+							<li>
+								<a href="blank.html">
+									<i class="icon-double-angle-right"></i>
+									Blank Page
+								</a>
+							</li>
+						</ul>
+					</li>-->
+				</ul><!--/.nav-list-->
+
+				<div id="sidebar-collapse">
+					<i class="icon-double-angle-left"></i>
+				</div>
+			</div>
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs"><!-- InstanceBeginEditable name="当前位置" -->
+				  <ul class="breadcrumb">
+				    <li> <i class="icon-home"></i> <a href="#">首页</a> <span class="divider"> <i class="icon-angle-right"></i> </span> </li>				    
+				    <li class="active">版权、版税及合同管理</li>
+			    </ul>
+				  <!--.breadcrumb-->
+				<!-- InstanceEndEditable -->
+				  <div id="nav-search">
+						<form class="form-search">
+							<span class="input-icon">
+								<input type="text" placeholder="Search ..." class="input-small search-query" id="nav-search-input" autocomplete="off" />
+								<i class="icon-search" id="nav-search-icon"></i>
+							</span>
+						</form>
+					</div><!--#nav-search-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+					<div class="row-fluid">
+						<!--PAGE CONTENT BEGINS HERE--><!-- InstanceBeginEditable name="EditRegion4" -->
+                        <div class="page-header position-relative">
+            <h1> 版权、版税及合同管理 </h1>
+          </div>
+          <!--/.page-header-->
+          
+          <div class="row-fluid"> 
+            <!--PAGE CONTENT BEGINS HERE-->
+            <div class="ace-thumbnails">
+<a class="btn btn-primary" href="zrbj-royalty_p01.html"><i class="icon-edit bigger-125"></i>版税管理</a>&nbsp;<a class="btn btn-primary" href="zrbj-royalty_p02.html"><i class="icon-beaker bigger-125"></i>引进版权</a>&nbsp;<a class="btn btn-primary" href="zrbj-royalty_p03.html"><i class="icon-beaker bigger-125"></i>输出版权</a>
+
+</div>
+            <form class="form-horizontal">
+              <div class="row-fluid">
+                <div class="widget-box">
+                  <div class="widget-header">
+                    <h5><strong>最建版税合同</strong></h5>
+                    <div class="widget-toolbar"><a href="zrbj-royalty_search.html" data-action="collapse"> <i class="icon-search"></i> </a>&nbsp;<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i> </a> </div>
+                  </div>
+                  <div class="widget-body">
+                    <div class="row-fluid">
+                      <table id="table_report" class="table table-striped table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th class="center"> <label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label>
+                            </th>
+                            <th>合同编号</th>
+                            <th>选题编号</th>
+                            <th class="hidden-480"> <i class="icon-time hidden-phone"></i> 产品类型</th>
+                            <th class="hidden-phone"> <i class="icon-time hidden-phone"></i> 甲方</th>
+                            <th class="hidden-phone"><span class="hidden-480">乙方</span></th>
+                            <th class="hidden-phone">合同类型</th>
+                            <th class="hidden-phone">补贴款</th>
+                            <th class="hidden-480">签署日期</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td> bw003 </td>
+                            <td>$45</td>
+                            <td class="hidden-480">7</td>
+                            <td class="hidden-phone">3</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td> bw004 </td>
+                            <td>$35</td>
+                            <td class="hidden-480">5</td>
+                            <td class="hidden-phone">4</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-11 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td> bw005 </td>
+                            <td>$60</td>
+                            <td class="hidden-480">4</td>
+                            <td class="hidden-phone">2</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-10 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td> bw006 </td>
+                            <td>$75</td>
+                            <td class="hidden-480">8</td>
+                            <td class="hidden-phone">5</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">pro.com</a></td>
+                            <td>$55</td>
+                            <td class="hidden-480">10</td>
+                            <td class="hidden-phone">2</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">team.com</a></td>
+                            <td>$40</td>
+                            <td class="hidden-480">11</td>
+                            <td class="hidden-phone">9</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">up.com</a></td>
+                            <td>$95</td>
+                            <td class="hidden-480">12</td>
+                            <td class="hidden-phone">10</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">view.com</a></td>
+                            <td>$45</td>
+                            <td class="hidden-480">4,100</td>
+                            <td class="hidden-phone">Mar 12</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">nice.com</a></td>
+                            <td>$38</td>
+                            <td class="hidden-480">3,940</td>
+                            <td class="hidden-phone">Feb 12</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">fine.com</a></td>
+                            <td>$25</td>
+                            <td class="hidden-480">2,983</td>
+                            <td class="hidden-phone">Apr 01</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">good.com</a></td>
+                            <td>$50</td>
+                            <td class="hidden-480">6,500</td>
+                            <td class="hidden-phone">Feb 02</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">great.com</a></td>
+                            <td>$55</td>
+                            <td class="hidden-480">6,400</td>
+                            <td class="hidden-phone">Feb 24</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">shine.com</a></td>
+                            <td>$25</td>
+                            <td class="hidden-480">2,200</td>
+                            <td class="hidden-phone">Apr 01</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">rise.com</a></td>
+                            <td>$42</td>
+                            <td class="hidden-480">3,900</td>
+                            <td class="hidden-phone">Feb 01</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">above.com</a></td>
+                            <td>$35</td>
+                            <td class="hidden-480">3,420</td>
+                            <td class="hidden-phone">Mar 12</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td> bw001 </td>
+                            <td>$30</td>
+                            <td class="hidden-480">3,200</td>
+                            <td class="hidden-phone">Feb 11</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td> bw002 </td>
+                            <td>$35</td>
+                            <td class="hidden-480">3,900</td>
+                            <td class="hidden-phone">Mar 26</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">year.com</a></td>
+                            <td>$48</td>
+                            <td class="hidden-480">3,990</td>
+                            <td class="hidden-phone">Feb 15</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">day.com</a></td>
+                            <td>$55</td>
+                            <td class="hidden-480">5,600</td>
+                            <td class="hidden-phone">Jan 29</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">light.com</a></td>
+                            <td>$40</td>
+                            <td class="hidden-480">3,100</td>
+                            <td class="hidden-phone">Feb 17</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">sight.com</a></td>
+                            <td>$58</td>
+                            <td class="hidden-480">6,100</td>
+                            <td class="hidden-phone">Feb 19</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">right.com</a></td>
+                            <td>$50</td>
+                            <td class="hidden-480">4,400</td>
+                            <td class="hidden-phone">Apr 01</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                          <tr>
+                            <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span> </label></td>
+                            <td><a href="#">once.com</a></td>
+                            <td>$20</td>
+                            <td class="hidden-480">1,400</td>
+                            <td class="hidden-phone">Apr 04</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-phone">&nbsp;</td>
+                            <td class="hidden-480"> 2013-05-12 </td>
+                            <td class="td-actions"><div class="hidden-phone visible-desktop btn-group">
+                                <button class="btn btn-mini btn-success"> <i class="icon-ok bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-info"> <i class="icon-edit bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-danger"> <i class="icon-trash bigger-120"></i> </button>
+                                <button class="btn btn-mini btn-warning"> <i class="icon-flag bigger-120"></i> </button>
+                              </div>
+                              <div class="hidden-desktop visible-phone">
+                                <div class="inline position-relative">
+                                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div>
+                              </div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="widget-box">
+                    <div class="widget-header">
+                      <h5><strong>最近出售版权</strong></h5>
+                     <div class="widget-toolbar"><a href="zrbj-royalty_search.html" data-action="collapse"> <i class="icon-search"></i> </a>&nbsp;<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i> </a> </div>
+                    </div>
+                    <div class="widget-body">
+                      <div class="row-fluid">
+                        <table id="table_bug_report" class="table table-striped table-bordered table-hover">
+                          <thead>
+                            <tr>
+                              <th class="center"> <label>
+                                  <input type="checkbox" />
+                                  <span class="lbl"></span> </label>
+                              </th>
+                              <th>产品编号</th>
+                              <th>合同编号</th>
+                              <th class="hidden-480">产品名称</th>
+                              <th class="hidden-480">输出文种</th>
+                              <th class="hidden-480">购买方</th>
+                              <th class="hidden-480">支付首款</th>
+                              <th class="hidden-480">合同签署日期</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="center"><label>
+                                  <input type="checkbox" />
+                                  <span class="lbl"></span> </label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"><span class="label label-warning">否</span></td>
+                              <td class="hidden-480">2013-10-06</td>
+                              <td><div class="inline position-relative">
+                                  <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                  <input type="checkbox" />
+                                  <span class="lbl"></span> </label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"><span class="label label-success">是</span></td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                  <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                  <input type="checkbox" />
+                                  <span class="lbl"></span> </label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"><span class="label label-warning">否</span></td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                  <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                  <input type="checkbox" />
+                                  <span class="lbl"></span> </label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"></td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                  <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                  <input type="checkbox" />
+                                  <span class="lbl"></span> </label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                  <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i> </button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                    <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i> </span> </a> </li>
+                                    <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i> </span> </a> </li>
+                                  </ul>
+                                </div></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="widget-box">
+                    <div class="widget-header">
+                      <h5><strong>最近获得版权</strong></h5>
+                      <div class="widget-toolbar"><a href="zrbj-royalty_search.html" data-action="collapse"> <i class="icon-search"></i> </a>&nbsp;<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i> </a> </div>
+                    </div>
+                    <div class="widget-body">
+                      <div class="row-fluid">
+                        <table id="table_bug_report2" class="table table-striped table-bordered table-hover">
+                          <thead>
+                            <tr>
+                              <th class="center"> <label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span></label>
+                              </th>
+                              <th>产品编号</th>
+                              <th>合同编号</th>
+                              <th class="hidden-480">产品名称</th>
+                              <th class="hidden-480">输出文种</th>
+                              <th class="hidden-480">购买方</th>
+                              <th class="hidden-480">支付首款</th>
+                              <th class="hidden-480">合同签署日期</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span></label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"><span class="label label-warning">否</span></td>
+                              <td class="hidden-480">2013-10-06</td>
+                              <td><div class="inline position-relative">
+                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i></button>
+                                <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                  <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i></span></a></li>
+                                </ul>
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span></label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"><span class="label label-success">是</span></td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i></button>
+                                <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                  <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i></span></a></li>
+                                </ul>
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span></label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"><span class="label label-warning">否</span></td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i></button>
+                                <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                  <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i></span></a></li>
+                                </ul>
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span></label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480"></td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i></button>
+                                <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                  <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i></span></a></li>
+                                </ul>
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td class="center"><label>
+                                <input type="checkbox" />
+                                <span class="lbl"></span></label></td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">&nbsp;</td>
+                              <td class="hidden-480">2013-05-03</td>
+                              <td><div class="inline position-relative">
+                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"> <i class="icon-cog icon-only bigger-110"></i></button>
+                                <ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
+                                  <li> <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" data-placement="left"> <span class="green"> <i class="icon-edit"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-warning" data-rel="tooltip" title="Flag" data-placement="left"> <span class="blue"> <i class="icon-flag"></i></span></a></li>
+                                  <li> <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="left"> <span class="red"> <i class="icon-trash"></i></span></a></li>
+                                </ul>
+                              </div></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </form>
+            
+            <!--PAGE CONTENT ENDS HERE--> 
+          </div>
+          <!--/row--> 
+						<!-- InstanceEndEditable -->
+					  <!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+
+				<div id="ace-settings-container">
+					<div class="btn btn-app btn-mini btn-warning" id="ace-settings-btn">
+						<i class="icon-cog"></i>
+					</div>
+
+					<div id="ace-settings-box">
+						<div>
+							<div class="pull-left">
+								<select id="skin-colorpicker" class="hidden">
+									<option data-class="default" value="#438EB9">#438EB9</option>
+									<option data-class="skin-1" value="#222A2D">#222A2D</option>
+									<option data-class="skin-2" value="#C6487E">#C6487E</option>
+									<option data-class="skin-3" value="#D0D0D0">#D0D0D0</option>
+								</select>
+							</div>
+							<span>&nbsp; Choose Skin</span>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" />
+							<label class="lbl" for="ace-settings-header"> Fixed Header</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+						</div>
+					</div>
+				</div><!--/#ace-settings-container-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+		<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!--basic scripts-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='js/jquery-1.9.1.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<!--page specific plugin scripts--><!-- InstanceBeginEditable name="EditRegion5" -->
+        
+<script src="js/jquery.dataTables.min.js"></script> 
+<script src="js/jquery.dataTables.bootstrap.js"></script> 
+<script src="js/jquery.colorbox.js"></script> 
+        <script>
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".group1").colorbox({rel:'group1'});
+				$(".group2").colorbox({rel:'group2', transition:"fade"});
+				$(".group3").colorbox({rel:'group3', transition:"none", width:"75%", height:"75%"});
+				$(".group4").colorbox({rel:'group4', slideshow:true});
+				$(".ajax").colorbox();
+				$(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+				$(".vimeo").colorbox({iframe:true, innerWidth:500, innerHeight:409});
+				$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+				$(".inline").colorbox({inline:true, width:"50%"});
+				$(".callbacks").colorbox({
+					onOpen:function(){ alert('onOpen: colorbox is about to open'); },
+					onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
+					onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
+					onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
+					onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
+				});
+
+				$('.non-retina').colorbox({rel:'group5', transition:'none'})
+				$('.retina').colorbox({rel:'group5', transition:'none', retinaImage:true, retinaUrl:true});
+				
+				//Example of preserving a JavaScript event for inline calls.
+				$("#click").click(function(){ 
+					$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+					return false;
+				});
+			});
+			
+		</script>
+
+<script type="text/javascript">
+			$(function() {
+				var oTable1 = $('#table_report').dataTable( {
+				"aoColumns": [
+			      { "bSortable": false },
+			      null, null,null, null, null,null, null, null,
+				  { "bSortable": false }
+				] } );
+				
+				
+				$('table th input:checkbox').on('click' , function(){
+					var that = this;
+					$(this).closest('table').find('tr > td:first-child input:checkbox')
+					.each(function(){
+						this.checked = that.checked;
+						$(this).closest('tr').toggleClass('selected');
+					});
+						
+				});
+			
+				$('[data-rel=tooltip]').tooltip();
+			})
+		</script> 
+		<!-- InstanceEndEditable -->
+        
+		<!--ace scripts-->
+
+		<script src="js/ace-elements.min.js"></script>
+		<script src="js/ace.min.js"></script>
+
+		<!--inline scripts related to this page-->
+	</body>
+<!-- InstanceEnd --></html>

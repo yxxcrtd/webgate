@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	   xmlns:oauth="http://www.springframework.org/schema/security/oauth2" 
+	   xmlns:sec="http://www.springframework.org/schema/security"	
+	   xsi:schemaLocation="http://www.springframework.org/schema/security/oauth2 
+	   					   http://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd	
+	   					   http://www.springframework.org/schema/security 
+	   					   http://www.springframework.org/schema/security/spring-security-3.1.xsd		
+	   					   http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	
+	<oauth:authorization-server token-endpoint-url="/oauth/token" authorization-endpoint-url="/oauth/authorize" 
+		client-details-service-ref="clientDetailsService" token-services-ref="" user-approval-handler-ref="">
+		<oauth:authorization-code disabled="false" authorization-code-services-ref="org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices"/>
+		<oauth:implicit disabled="false"/>
+		<oauth:refresh-token disabled="false"/>
+		<oauth:client-credentials disabled="false"/>
+		<oauth:password disabled="false" authentication-manager-ref=""/>
+	</oauth:authorization-server>
+	
+	<oauth:resource-server/>
+	
+	<oauth:client-details-service id="clientDetailsService">
+	
+	</oauth:client-details-service>
+	
+	<oauth:expression-handler/>
+	
+	<oauth:web-expression-handler/>
+	
+	<bean id="tokenServices" class="org.springframework.security.oauth2.provider.token.RandomValueTokenServices">
+		<property name="tokenStore" ref="customTokenStroe"/>			
+		<property name="supportRefreshToken" value="true" />
+	</bean>
+	
+	<bean id="customTokenStroe" class="cn.com.daxtech.framework.oauth2.CustomTokenStroe"></bean>
+
+</beans>

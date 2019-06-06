@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.digitalpublishing.po.SysParameter" table="SYS_PARAMETER">
+        <id name="id" type="java.lang.String">
+            <column name="PARAM_ID" length="32">
+            	<comment>参数ID</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="code" type="java.lang.String">
+            <column name="PARAM_CODE" length="32">
+            	<comment>参数编号</comment>
+            </column>
+        </property>
+        <property name="val" type="java.lang.String">
+            <column name="PARAM_VAL" length="64">
+            	<comment>参数值</comment>
+            </column>
+        </property>
+        <property name="isNull" type="java.lang.Integer">
+            <column name="PARAM_ISNULL">
+            	<comment>参数是否为空：1-允许 2-不允许</comment>
+            </column>
+        </property>
+        <many-to-one name="resource" class="cn.digitalpublishing.po.SysResource"
+			fetch="select" lazy="false">
+			<column name="RESOURCE_ID">
+				<comment>所属资源</comment>
+			</column>
+		</many-to-one>
+    </class>
+</hibernate-mapping>

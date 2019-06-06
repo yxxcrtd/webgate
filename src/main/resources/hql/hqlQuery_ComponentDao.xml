@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<!-- 传入参数xml文件格式如下: <?xml version="1.0" encoding="UTF-8"?>" <web-query> 
+		<queryparm> <ccsno>%</ccsno> <shipname>%</shipname> <stjobno>%</stjobno> 
+		<builder>%</builder> <yardno>%</yardno> <projectid>%</projectid> </queryparm> 
+		</web-query> -->
+	<!-- 主界面管理查询模块 -->
+	<dao id="cn.digitalpublishing.dao.ComponentDao">
+		<query>
+			<id>getList</id>
+			<method>getList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,code,system.id,name,address,port,status,system.name</properties>
+			<fields>a.id,a.code,b.id,a.name,a.address,a.port,a.status,b.name</fields>
+			<hql>from SysComponent a left join a.system b </hql>
+			<conditions>
+				<condition id="code" describe="编号">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql> a.code = ?</hql>
+				</condition>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="sysId" describe="所属系统">
+					<params type="param">
+						<param name="sysId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+				<condition id="uniqueId" describe="functionID">
+					<params type="param">
+						<param name="uniqueId" type="java.lang.String"></param>
+					</params>
+					<hql><![CDATA[a.id <> ?]]></hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.id</order>
+			<className>cn.digitalpublishing.po.SysComponent</className>
+		</query>
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysComponent a left join a.system b </hql>
+			<conditions>
+				<condition id="code" describe="编号">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql> a.code = ?</hql>
+				</condition>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="port" describe="端口">
+					<params type="param">
+						<param name="port" type="java.lang.String"></param>
+					</params>
+					<hql> a.port = ?</hql>
+				</condition>
+				<condition id="address" describe="地址">
+					<params type="param">
+						<param name="address" type="java.lang.String"></param>
+					</params>
+					<hql> a.address = ?</hql>
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="sysId" describe="所属系统">
+					<params type="param">
+						<param name="sysId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+				<condition id="uniqueId" describe="functionID">
+					<params type="param">
+						<param name="uniqueId" type="java.lang.String"></param>
+					</params>
+					<hql><![CDATA[a.id <> ?]]></hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.id</order>
+			<className>cn.digitalpublishing.po.SysComponent</className>
+		</query>
+		<query>
+			<id>getPagingList</id>
+			<method>getPagingList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,code,name,address,port,status,system.name</properties>
+			<fields>a.id,a.code,a.name,a.address,a.port,a.status,b.name</fields>
+			<hql>from SysComponent a left join a.system b </hql>
+			<conditions>
+				<condition id="code" describe="编号">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql> a.code = ?</hql>
+				</condition>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="sysId" describe="所属系统">
+					<params type="param">
+						<param name="sysId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+				<condition id="uniqueId" describe="functionID">
+					<params type="param">
+						<param name="uniqueId" type="java.lang.String"></param>
+					</params>
+					<hql><![CDATA[a.id <> ?]]></hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.id</order>
+			<className>cn.digitalpublishing.po.SysComponent</className>
+		</query>
+	</dao>
+</web-query>

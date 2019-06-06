@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<!-- 传入参数xml文件格式如下: <?xml version="1.0" encoding="UTF-8"?>" <web-query> 
+		<queryparm> <ccsno>%</ccsno> <shipname>%</shipname> <stjobno>%</stjobno> 
+		<builder>%</builder> <yardno>%</yardno> <projectid>%</projectid> </queryparm> 
+		</web-query> -->
+	<!-- 主界面管理查询模块 -->
+	<dao id="cn.digitalpublishing.dao.FunctionDao">
+		<query>
+			<id>getList</id>
+			<method>getList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+			</params>
+			<!-- <properties>id,name,code,path,page.id,page.name</properties> -->
+            <properties>
+                <property>
+                    <hql>id</hql>
+                </property>
+                <property>
+					<hql>chooseType</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+				</property>
+				<property>
+				    <hql>name</hql>
+				</property>
+				<property>
+				    <hql>code</hql>
+				</property>
+				<property>
+				    <hql>path</hql>
+				</property>
+				<property>
+				    <hql>page.id</hql>
+				</property>
+				<property>
+				    <hql>page.name</hql>
+				</property>
+            </properties>
+			<!-- <fields>a.id,a.name,a.code,a.path,b.id,b.name</fields> -->
+			<fields>
+			    <field>
+			        <hql>a.id</hql>
+			    </field>
+			    <field>
+					<hql>(select cast(count(*) as int) from SysRoleFunctionRelationship b where b.function.id=a.id and b.role.id = ?)</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+			    </field>
+			    <field>
+			        <hql>a.name</hql>
+			    </field>
+			    <field>
+			        <hql>a.code</hql>
+			    </field>
+			    <field>
+			        <hql>(case when c.special is null or c.special ='' then concat(concat(c.path,'#'),a.code) else concat(concat(concat(concat(c.path,'#'),c.special),'#'),a.code) end) as path</hql>
+			    </field>
+			    <field>
+			        <hql>c.id</hql>
+			    </field>
+			    <field>
+			        <hql>c.name</hql>
+			    </field>
+			</fields>
+			<hql>from SysFunction a left join a.page c </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="code" describe="编码">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql>a.code = ?</hql>
+				</condition>
+				<condition id="pageId" describe="页面ID">
+					<params type="param">
+						<param name="pageId" type="java.lang.String"></param>
+					</params>
+					<hql>c.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.code</order>
+			<className>cn.digitalpublishing.po.SysFunction</className>
+		</query>
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysFunction a left join a.page c </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="code" describe="编码">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql>a.code = ?</hql>
+				</condition>
+				<condition id="pageId" describe="页面ID">
+					<params type="param">
+						<param name="pageId" type="java.lang.String"></param>
+					</params>
+					<hql>c.id = ?</hql>
+				</condition>
+				<condition id="uniqueId" describe="functionID">
+					<params type="param">
+						<param name="uniqueId" type="java.lang.String"></param>
+					</params>
+					<hql><![CDATA[a.id <> ?]]></hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.code</order>
+			<className>cn.digitalpublishing.po.SysFunction</className>
+		</query>
+		<query>
+			<id>getPagingList</id>
+			<method>getPagingList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+				<param name="pageCount" type="java.lang.Integer"></param>
+				<param name="Integer" type="java.lang.Integer"></param>
+			</params>
+			<!-- <properties>id,name,code,path,page.id,page.name</properties> -->
+			<properties>
+			    <property>
+			        <hql>id</hql>
+			    </property>
+			   <property>
+					<hql>chooseType</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+				</property> 
+				<property>
+			        <hql>name</hql>
+			    </property>
+			    <property>
+			        <hql>code</hql>
+			    </property>
+			    <property>
+			        <hql>path</hql>
+			    </property>
+			    <property>
+			        <hql>page.id</hql>
+			    </property>
+			    <property>
+			        <hql>page.name</hql>
+			    </property>
+			    <property>
+			        <hql>page.special</hql>
+			    </property>
+			</properties>
+			<!-- <fields>a.id,a.name,a.code,a.path,b.id,b.name</fields> -->
+			<fields>
+			    <field>
+			        <hql>a.id</hql>
+			    </field>
+			    <field>
+					<hql>(select cast(count(*) as int) from SysRoleFunctionRelationship b where b.function.id=a.id and b.role.id = ?)</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params> 
+				</field>
+				<field>
+			        <hql>a.name</hql>
+			    </field>
+			    <field>
+			        <hql>a.code</hql>
+			    </field>
+			    <field>
+			        <hql>(case when c.special is null or c.special ='' then concat(concat(c.path,'#'),a.code) else concat(concat(concat(concat(c.path,'#'),c.special),'#'),a.code) end) as path</hql>
+			    </field>
+			    <field>
+			        <hql>c.id</hql>
+			    </field>
+			    <field>
+			        <hql>c.name</hql>
+			    </field>
+			    <field>
+			        <hql>c.special</hql>
+			    </field>
+			</fields>
+			<hql>from SysFunction a left join a.page c </hql>
+			<conditions>
+				<condition id="name" describe="名称">
+					<params type="param">
+						<param name="name" type="java.lang.String"></param>
+					</params>
+					<hql> a.name = ?</hql>
+				</condition>
+				<condition id="code" describe="编码">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql>a.code = ?</hql>
+				</condition>
+				<condition id="pageId" describe="页面ID">
+					<params type="param">
+						<param name="pageId" type="java.lang.String"></param>
+					</params>
+					<hql>c.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by a.code</order>
+			<className>cn.digitalpublishing.po.SysFunction</className>
+		</query>
+	</dao>
+</web-query>

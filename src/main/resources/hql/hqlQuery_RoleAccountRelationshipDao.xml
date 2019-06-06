@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<!-- 传入参数xml文件格式如下: <?xml version="1.0" encoding="UTF-8"?>" <web-query> 
+		<queryparm> <ccsno>%</ccsno> <shipname>%</shipname> <stjobno>%</stjobno> 
+		<builder>%</builder> <yardno>%</yardno> <projectid>%</projectid> </queryparm> 
+		</web-query> -->
+	<!-- 主界面管理查询模块 -->
+	<dao id="cn.digitalpublishing.dao.RoleAccountRelationshipDao">
+		<query>
+			<id>getRoleAccountRelationshipListByAccountId</id>
+			<method>getRoleAccountRelationshipListByAccountId</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,role.id,role.name,role.status,role.desc,account.name,account.pass,account.status,account.type,account.level,role.system.id,role.system.name</properties>
+			<fields>a.id,b.id,b.name,b.status,b.desc,c.name,c.pass,c.status,c.type,c.level,e.id,e.name</fields>
+			<hql>from SysRoleAccountRelationship a left join a.role b left join a.account c left join b.system e</hql>
+			<conditions>
+				<condition id="accountId" describe="账号ID">
+					<params type="param">
+						<param name="accountId" type="java.lang.String"></param>
+					</params>
+					<hql> c.id = ?</hql>
+				</condition>
+				<condition id="roleId" describe="角色ID">
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order>order by c.name</order>
+			<className>cn.digitalpublishing.po.SysRoleAccountRelationship</className>
+		</query>
+		<query>
+			<id>delByWhere</id>
+			<method>delByWhere</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id</properties>
+			<fields>a.id</fields>
+			<hql>delete from SysRoleAccountRelationship a </hql>
+			<conditions>
+				<condition id="accountId" describe="账号ID">
+					<params type="param">
+						<param name="accountId" type="java.lang.String"></param>
+					</params>
+					<hql> a.account.id = ?</hql>
+				</condition>
+				<condition id="roleId" describe="角色ID">
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+					<hql> a.role.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysRoleAccountRelationship</className>
+		</query>
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysRoleAccountRelationship a left join a.role b left join a.account c </hql>
+			<conditions>
+				<condition id="accountId" describe="账号ID">
+					<params type="param">
+						<param name="accountId" type="java.lang.String"></param>
+					</params>
+					<hql> c.id = ?</hql>
+				</condition>
+				<condition id="roleId" describe="角色ID">
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysRoleAccountRelationship</className>
+		</query>
+	</dao>
+</web-query>

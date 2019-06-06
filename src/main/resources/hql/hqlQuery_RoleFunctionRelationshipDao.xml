@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<!-- 传入参数xml文件格式如下: <?xml version="1.0" encoding="UTF-8"?>" <web-query> 
+		<queryparm> <ccsno>%</ccsno> <shipname>%</shipname> <stjobno>%</stjobno> 
+		<builder>%</builder> <yardno>%</yardno> <projectid>%</projectid> </queryparm> 
+		</web-query> -->
+	<!-- 主界面管理查询模块 -->
+	<dao id="cn.digitalpublishing.dao.RoleFunctionRelationshipDao">
+		<query>
+			<id>delByWhere</id>
+			<method>delByWhere</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id</properties>
+			<fields>a.id</fields>
+			<hql>delete from SysRoleFunctionRelationship a </hql>
+			<conditions>
+				<condition id="roleId" describe="角色ID">
+					<params type="param">
+						<param name="roletId" type="java.lang.String"></param>
+					</params>
+					<hql> a.role.id = ?</hql>
+				</condition>
+				<condition id="functionId" describe="功能ID">
+					<params type="param">
+						<param name="functionId" type="java.lang.String"></param>
+					</params>
+					<hql> a.function.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysRoleFunctionRelationship</className>
+		</query>
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysRoleFunctionRelationship a left join a.role b left join a.function c </hql>
+			<conditions>
+				<condition id="functionId" describe="功能ID">
+					<params type="param">
+						<param name="functionId" type="java.lang.String"></param>
+					</params>
+					<hql> c.id = ?</hql>
+				</condition>
+				<condition id="roleId" describe="角色ID">
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysRoleFunctionRelationship</className>
+		</query>
+		
+		
+		<query>
+			<id>getList</id>
+			<method>getList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+			</params>
+			<properties>id,function.code,function.page.path,function.page.resource.component.code</properties>
+			<fields>a.id,c.code,d.path,f.code</fields>
+			<hql>from SysRoleFunctionRelationship a left join a.role b left join a.function c left join c.page d left join d.resource e left join e.component f</hql>
+			<conditions>
+				<condition id="functionId" describe="功能ID">
+					<params type="param">
+						<param name="functionId" type="java.lang.String"></param>
+					</params>
+					<hql> c.id = ?</hql>
+				</condition>
+				<condition id="roleId" describe="角色ID">
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+				
+				<condition id="url" describe="resource url">
+					<params type="param">
+						<param name="url" type="java.lang.String"></param>
+					</params>
+					<hql> e.link = ?</hql>
+				</condition>
+				<condition id="componentCode" describe="componentCode">
+					<params type="param">
+						<param name="componentCode" type="java.lang.String"></param>
+					</params>
+					<hql> f.code = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysRoleFunctionRelationship</className>
+		</query>
+	</dao>
+</web-query>

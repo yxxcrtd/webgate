@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.digitalpublishing.po.SysPage" table="SYS_PAGE">
+        <id name="id" type="java.lang.String">
+            <column name="PAGE_ID" length="32">
+            	<comment>页面ID</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="PAGE_NAME" length="255">
+            	<comment>页面名称</comment>
+            </column>
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="PAGE_CODE" length="255">
+            	<comment>页面编号</comment>
+            </column>
+        </property>
+        <property name="path" type="java.lang.String">
+            <column name="PAGE_PATH" length="255">
+            	<comment>页面路径</comment>
+            </column>
+        </property>
+        <property name="special" type="java.lang.String">
+            <column name="PAGE_SPECIAL" length="255">
+            	<comment>特殊标识 用于相同页面路径标识 </comment>
+            </column>
+        </property>
+        <many-to-one name="resource" class="cn.digitalpublishing.po.SysResource"
+			fetch="select" lazy="false">
+			<column name="RESOURCE_ID" />
+		</many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 
+	<bean id="sysService" parent="baseTxProxy">
+		<property name="target">
+			<bean class="cn.ccsit.service.impl.SysServiceImpl" parent="baseService" />
+		</property>
+	</bean>
+	
+	<bean id="sysServiceImpl" class="cn.ccsit.service.impl.SysServiceImpl"/>
+	
+	<bean id="moduleService" parent="baseTxProxy">
+		<property name="target">
+			<bean class="cn.ccsit.service.impl.ModuleServiceImpl" parent="baseService" />
+		</property>
+	</bean>
+	
+	<bean id="moduleImpl" class="cn.ccsit.service.impl.ModuleServiceImpl"/>
+	
+	<bean id="oauth2Service" parent="baseTxProxy">
+		<property name="target">
+			<bean class="cn.ccsit.service.impl.Oauth2ServiceImpl" parent="baseService" />
+		</property>
+	</bean>
+	 -->
+</beans>

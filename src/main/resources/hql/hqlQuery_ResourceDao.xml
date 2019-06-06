@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+    <dao id="cn.digitalpublishing.dao.ResourceDao">
+        <query>
+            <id>getPagingList</id>
+            <method>getPagingList</method>
+            <params>
+                <param name="condition" type="java.util.Map"></param>
+                <param name="sort" type="java.lang.String"></param>
+            </params>
+            <!-- <properties>id,code,name,parentResource.id,parentResource.code,parentResource.name,status,leaf,parentResource.leaf</properties> -->
+			<properties>
+				<property>
+					<hql>id</hql>
+				</property>
+				<property>
+					<hql>chooseType</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+				</property>
+				<property>
+					<hql>code</hql>
+				</property>
+				<property>
+					<hql>name</hql>
+				</property>
+				<property>
+					<hql>parentResource.id</hql>
+				</property>
+				<property>
+					<hql>parentResource.code</hql>
+				</property>
+				<property>
+					<hql>parentResource.name</hql>
+				</property>
+				<property>
+					<hql>status</hql>
+				</property>
+				<property>
+					<hql>leaf</hql>
+				</property>
+				<property>
+					<hql>parentResource.leaf</hql>
+				</property>
+			</properties>
+            <!-- <fields>a.id,a.code,a.name,b.id,b.code,b.name,a.status,(select cast(count(*) as int) from SysResource d where d.parentResource.id=a.id) as leaf,(select cast(count(*) as int) from SysPage c where c.resource.id=a.id) as haveLeaf</fields> -->
+            <fields>
+				<field>
+					<hql>a.id</hql>
+				</field>
+				<field>
+					<hql>(select cast(count(*) as int) from SysRoleResourceRelationship d where d.resource.id=a.id and d.role.id = ?)</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+				</field>
+				<field>
+					<hql>a.code</hql>
+				</field>
+				<field>
+					<hql>a.name</hql>
+				</field>
+				<field>
+					<hql>b.id</hql>
+				</field>
+				<field>
+					<hql>b.code</hql>
+				</field>
+				<field>
+					<hql>b.name</hql>
+				</field>
+				<field>
+					<hql>a.status</hql>
+				</field>
+				<field>
+					<hql>(select cast(count(*) as int) from SysResource d where d.parentResource.id=a.id) as leaf</hql>
+				</field>
+				<field>
+					<hql>(select cast(count(*) as int) from SysPage c where c.resource.id=a.id) as haveLeaf</hql>
+				</field>
+			</fields>
+			<hql>from SysResource a left join a.parentResource b left join a.system c left join a.component e</hql>
+            <conditions>
+                 <condition id="parentResource" describe="父节点">
+                     <params type="param">
+                         <param name="parentResource" type="java.lang.String"></param>
+                     </params>
+                     <hql>(case when b.id is null then '1' else b.id end) = ?</hql>
+                 </condition>
+                 
+                 <condition id="id" describe="id">
+                     <params type="param">
+                         <param name="id" type="java.lang.String"></param>
+                     </params>
+                     <hql> a.id = </hql>
+                 </condition>
+                 
+                 <condition id="status" describe="状态">
+                     <params type="param">
+                         <param name="status" type="java.lang.Integer"></param>
+                     </params>
+                     <hql> a.status = ? </hql>
+                 </condition>
+                 
+                 <condition id="sysId" describe="状态">
+                     <params type="param">
+                         <param name="sysId" type="java.lang.String"></param>
+                     </params>
+                     <hql> c.id = ? </hql>
+                 </condition>
+                 
+                 <condition id="componentId" describe="状态">
+                     <params type="param">
+                         <param name="componentId" type="java.lang.String"></param>
+                     </params>
+                     <hql> e.id = ? </hql>
+                 </condition>
+            </conditions>
+            <group></group>
+            <className>cn.digitalpublishing.po.SysResource</className>
+        </query>
+        <query>
+            <id>getCount</id>
+            <method>getCount</method>
+            <params>
+               <param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+            </params>
+            <properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysResource a left join a.parentResource b left join a.system c left join a.component e</hql>
+			<conditions>
+				<condition id="parentResource" describe="父节点">
+					<params type="param">
+						<param name="parentResource" type="java.lang.String"></param>
+					</params>
+					<hql>(case when b.id is null then '1' else b.id end) = ?</hql>
+				</condition>
+                 
+                 <condition id="id" describe="id">
+                     <params type="param">
+                         <param name="id" type="java.lang.String"></param>
+                     </params>
+                     <hql> a.id = </hql>
+                 </condition>
+                 
+                 <condition id="status" describe="状态">
+                     <params type="param">
+                         <param name="status" type="java.lang.Integer"></param>
+                     </params>
+                     <hql> a.status = ? </hql>
+                 </condition>
+                 
+                 <condition id="sysId" describe="状态">
+                     <params type="param">
+                         <param name="sysId" type="java.lang.String"></param>
+                     </params>
+                     <hql> c.id = ? </hql>
+                 </condition>
+                 
+                 <condition id="componentId" describe="状态">
+                     <params type="param">
+                         <param name="componentId" type="java.lang.String"></param>
+                     </params>
+                     <hql> e.id = ? </hql>
+                 </condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+        </query>
+        <query>
+			<id>getList</id>
+			<method>getList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<!-- <properties>id,code,name,parentResource.id,parentResource.code,parentResource.name,status,leaf,parentResource.leaf</properties> -->
+			<properties>
+				<property>
+					<hql>id</hql>
+				</property>
+				<property>
+					<hql>chooseType</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+				</property>
+				<property>
+					<hql>code</hql>
+				</property>
+				<property>
+					<hql>name</hql>
+				</property>
+				<property>
+					<hql>parentResource.id</hql>
+				</property>
+				<property>
+					<hql>parentResource.code</hql>
+				</property>
+				<property>
+					<hql>parentResource.name</hql>
+				</property>
+				<property>
+					<hql>status</hql>
+				</property>
+				<property>
+					<hql>leaf</hql>
+				</property>
+				<property>
+					<hql>parentResource.leaf</hql>
+				</property>
+			</properties>
+			<!-- <fields>a.id,a.code,a.name,b.id,b.code,b.name,a.status,(select cast(count(*) as int) from SysResource d where d.parentResource.id=a.id) as leaf,(select cast(count(*) as int) from SysPage c where c.resource.id=a.id) as haveLeaf</fields> -->
+            <fields>
+				<field>
+					<hql>a.id</hql>
+				</field>
+				<field>
+					<hql>(select cast(count(*) as int) from SysRoleResourceRelationship d where d.resource.id=a.id and d.role.id = ?)</hql>
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+				</field>
+				<field>
+					<hql>a.code</hql>
+				</field>
+				<field>
+					<hql>a.name</hql>
+				</field>
+				<field>
+					<hql>b.id</hql>
+				</field>
+				<field>
+					<hql>b.code</hql>
+				</field>
+				<field>
+					<hql>b.name</hql>
+				</field>
+				<field>
+					<hql>a.status</hql>
+				</field>
+				<field>
+					<hql>(select cast(count(*) as int) from SysResource d where d.parentResource.id=a.id) as leaf</hql>
+				</field>
+				<field>
+					<hql>(select cast(count(*) as int) from SysPage c where c.resource.id=a.id) as haveLeaf</hql>
+				</field>
+			</fields>
+			<hql>from SysResource a left join a.parentResource b left join a.system c left join a.component e</hql>
+			<conditions>
+				<condition id="parentResource" describe="父节点">
+					<params type="param">
+						<param name="parentResource" type="java.lang.String"></param>
+					</params>
+					<hql>(case when b.id is null then '1' else b.id end) = ?</hql>
+				</condition>
+
+				<condition id="id" describe="id">
+					<params type="param">
+						<param name="id" type="java.lang.String"></param>
+					</params>
+					<hql>a.id = ?</hql>
+				</condition>
+                 
+                 <condition id="status" describe="状态">
+                     <params type="param">
+                         <param name="status" type="java.lang.Integer"></param>
+                     </params>
+                     <hql> a.status = ? </hql>
+                 </condition>
+                 
+                 <condition id="sysId" describe="状态">
+                     <params type="param">
+                         <param name="sysId" type="java.lang.String"></param>
+                     </params>
+                     <hql> c.id = ? </hql>
+                 </condition>
+                 
+                 <condition id="componentId" describe="状态">
+                     <params type="param">
+                         <param name="componentId" type="java.lang.String"></param>
+                     </params>
+                     <hql> e.id = ? </hql>
+                 </condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+		</query>
+        <query>
+			<id>getResourceListByRoleId</id>
+			<method>getResourceListByRoleId</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,code,name,parentResource.id,parentResource.code,parentResource.name,link,status,leaf,parentResource.leaf,component.id,component.code,component.name,component.address,component.port,full</properties>
+			<fields>a.id,a.code,a.name,b.id,b.code,b.name,a.link,a.status,(select cast(count(*) as int) from SysResource d where d.parentResource.id=a.id) as leaf,(select cast(count(*) as int) from SysPage c where c.resource.id=a.id) as haveLeaf,e.id,e.code,e.name,e.address,e.port,(case when a.full is null then 1 else a.full end) as full</fields>
+			<hql>from SysResource a left join a.parentResource b left join a.system c left join a.component e</hql>
+			<conditions>
+				<condition id="parentResource" describe="父节点">
+					<params type="param">
+						<param name="parentResource" type="java.lang.String"></param>
+					</params>
+					<hql>(case when b.id is null then '1' else b.id end) = ?</hql>
+				</condition>
+
+				<condition id="roleId" describe="角色id">
+					<params type="param">
+						<param name="roleId" type="java.lang.String"></param>
+					</params>
+					<hql>exists(select f.id from SysRoleResourceRelationship f where f.resource.id=a.id and f.role.id= ?)</hql>
+				</condition>
+                 
+                 <condition id="status" describe="状态">
+                     <params type="param">
+                         <param name="status" type="java.lang.Integer"></param>
+                     </params>
+                     <hql> a.status = ? </hql>
+                 </condition>
+                 
+                 <condition id="sysId" describe="状态">
+                     <params type="param">
+                         <param name="sysId" type="java.lang.String"></param>
+                     </params>
+                     <hql> c.id = ? </hql>
+                 </condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+		</query>
+		<!-- 查询下一个Order -->
+		<query>
+			<id>getNextOrder</id>
+			<method>getNextOrder</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>order</properties>
+			<fields>a.order</fields>
+			<hql>from SysResource a left join a.parentResource b</hql>
+			<conditions>
+				<condition id="resourceId" describe="父节点">
+					<params type="param">
+						<param name="resourceId" type="java.lang.String"></param>
+					</params>
+					<hql>(case when b.id is null then '0' else b.id end) = ?</hql>
+				</condition>
+				<condition id="systemId" describe="系统id">
+					<params type="param">
+						<param name="systemId" type="java.lang.String"></param>
+					</params>
+					<hql> a.system.id =? </hql>
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.type =? </hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order> order by a.order desc </order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+		</query>
+		<!-- 查询下一个treeCode -->
+		<query>
+			<id>getNextCode</id>
+			<method>getNextCode</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>code</properties>
+			<fields>a.code</fields>
+			<hql>from SysResource a left join a.parentResource b</hql>
+			<conditions>
+				<condition id="resourceId" describe="父节点">
+					<params type="param">
+						<param name="resourceId" type="java.lang.String"></param>
+					</params>
+					<hql>(case when b.id is null then '0' else b.id end) = ?</hql>
+				</condition>
+				<condition id="systemId" describe="系统id">
+					<params type="param">
+						<param name="systemId" type="java.lang.String"></param>
+					</params>
+					<hql> a.system.id =? </hql>
+				</condition>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.type =? </hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order> order by a.code desc </order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+		</query>
+		<!-- 获取resource下的另一个resource -->
+		<query>
+			<id>getNextMenu</id>
+			<method>getNextMenu</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,code,name,link,status,order,type,system.id,component.id,parentResource.id</properties>
+			<fields>a.id,a.code,a.name,a.link,a.status,a.order,a.type,a.system.id,a.component.id,b.id</fields>
+			<hql>from SysResource a left join a.parentResource b</hql>
+			<conditions>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.type =? </hql>
+				</condition>
+				<condition id="order" describe="排序">
+					<params type="param">
+						<param name="order" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.order >? </hql>
+				</condition>
+				<condition id="resourceId" describe="系统">
+					<params type="param">
+						<param name="resourceId" type="java.lang.String"></param>
+					</params>
+					<hql> (case when b.id is null then '0' else b.id end) = ? </hql>
+				</condition>
+				<condition id="sysId" describe="系统">
+					<params type="param">
+						<param name="sysId" type="java.lang.String"></param>
+					</params>
+					<hql> a.system.id = ? </hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order> order by a.code </order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+		</query>
+		<!-- 更新resource的order -->
+		<query>
+			<id>updateBulkResourceOrder</id>
+			<method>updateBulkResourceOrder</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties></properties>
+			<fields> a.order = a.order + 1 </fields>
+			<hql> update SysResource a set </hql>
+			<conditions>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.type =? </hql>
+				</condition>
+				<condition id="greaterOrder" describe="排序">
+					<params type="param">
+						<param name="greaterOrder" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.order >? </hql>
+				</condition>
+				<condition id="greaterEqualOrder" describe="排序">
+					<params type="param">
+						<param name="greaterEqualOrder" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.order >=? </hql>
+				</condition>
+				<condition id="resourceId" describe="系统">
+					<params type="param">
+						<param name="resourceId" type="java.lang.String"></param>
+					</params>
+					<hql> (case when a.parentResource is null then '0' else a.parentResource.id end) = ? </hql>
+				</condition>
+				<condition id="sysId" describe="系统">
+					<params type="param">
+						<param name="sysId" type="java.lang.String"></param>
+					</params>
+					<hql> a.system.id = ? </hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+		</query>
+		<!-- 更新resource的code -->
+		<query>
+			<id>updateBulkResourceCode</id>
+			<method>updateBulkResourceCode</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties></properties>
+			<fields>
+				<field>
+					<hql> a.code=concat(?,substring(a.code,?,length(a.code)-?)) </hql>
+					<params type="param">
+						<param name="targetCode" type="java.lang.String"></param>
+						<param name="index" type="java.lang.Integer"></param>
+						<param name="length" type="java.lang.Integer"></param>
+					</params>
+				</field>
+				<field>
+					<hql> a.system.id=? </hql>
+					<params type="param">
+						<param name="sysId" type="java.lang.String"></param>
+					</params>
+				</field>
+			</fields>
+			<hql> update SysResource a set </hql>
+			<conditions>
+				<condition id="status" describe="状态">
+					<params type="param">
+						<param name="status" type="java.lang.Integer"></param>
+					</params>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition id="type" describe="类型">
+					<params type="param">
+						<param name="type" type="java.lang.Integer"></param>
+					</params>
+					<hql> a.type =? </hql>
+				</condition>
+				<condition id="code" describe="编号">
+					<params type="param">
+						<param name="code" type="java.lang.String"></param>
+					</params>
+					<hql> a.code like ? </hql>
+				</condition>
+				<condition id="sourceSysId" describe="系统">
+					<params type="param">
+						<param name="sourceSysId" type="java.lang.String"></param>
+					</params>
+					<hql> a.system.id = ? </hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysResource</className>
+		</query>
+    </dao>
+    
+</web-query>

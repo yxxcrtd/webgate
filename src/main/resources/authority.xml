@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Authority>
+	<space namespace="/pages/system">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	<space namespace="/pages/component">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	<space namespace="/pages/module">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	<space namespace="/pages/resource">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	<space namespace="/pages/account">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	<space namespace="/pages/function">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	<space namespace="/pages/role">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	<space namespace="/pages/frame">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	
+	<!--
+	<space namespace="/pages/rest">
+		<item name="#_uid" url="/pages/common/sessionListener" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	 
+	<space namespace="/frame">
+		<item name="#_uid" url="/redirect.jsp" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+	</space>
+	
+	<space namespace="/sys">
+		<item name="#_uid" url="/redirect.jsp" regular="NotNull" equal="" description="访问系统资源必须先登录！"/>
+		<item name="#_upwd" url="/frame/pwdSet.do" regular="Equal" equal="false" description="密码不安全，请设置密码！"/>
+	</space>
+	-->
+</Authority>

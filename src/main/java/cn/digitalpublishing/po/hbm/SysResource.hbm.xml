@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.digitalpublishing.po.SysResource" table="SYS_RESOURCE">
+        <id name="id" type="java.lang.String">
+            <column name="RESOURCE_ID" length="32">
+            	<comment>资源ID</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="RESOURCE_NAME" length="255">
+            	<comment>资源名称</comment>
+            </column>
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="RESOURCE_CODE" length="255">
+            	<comment>资源编号</comment>
+            </column>
+        </property>
+        <property name="link" type="java.lang.String">
+            <column name="RESOURCE_LINK" length="500">
+            	<comment>资源链接</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="RESOURCE_STATUS">
+            	<comment>资源状态：1-在用 2-停用（上级菜单 决定下级菜单的状态）</comment>
+            </column>
+        </property>
+        <property name="leaf" type="java.lang.Integer">
+            <column name="RESOURCE_ISLEAF">
+            	<comment>资源叶子节点：1-是 2-不是（只有叶子节点可以挂功能页面）</comment>
+            </column>
+        </property>
+        <property name="order" type="java.lang.Integer">
+            <column name="RESOURCE_ORDER">
+            	<comment>资源排序</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="RESOURCE_TYPE">
+            	<comment>资源类型：1-菜单 2-接口</comment>
+            </column>
+        </property>
+        <property name="full" type="java.lang.Integer">
+            <column name="RESOURCE_FULL">
+            	<comment>是否全路径：1-否 2-是（是否采用全路径）</comment>
+            </column>
+        </property>
+        <property name="locale" type="java.lang.String">
+            <column name="RESOURCE_LOCALE" length="512">
+            	<comment>国际化参数</comment>
+            </column>
+        </property>
+        <many-to-one name="system" class="cn.digitalpublishing.po.SysSystem"
+			fetch="select" lazy="false">
+			<column name="SYSTEM_ID" />
+		</many-to-one>
+        <many-to-one name="component" class="cn.digitalpublishing.po.SysComponent"
+			fetch="select" lazy="false">
+			<column name="COMPONENT_ID" />
+		</many-to-one>
+        <many-to-one name="parentResource" class="cn.digitalpublishing.po.SysResource"
+			fetch="select" lazy="false">
+			<column name="PARENT_ID" />
+		</many-to-one>
+		<set name="pageSet" inverse="true">
+			<key>
+				<column name="RESOURCE_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysPage" />
+		</set>
+		<set name="parameterSet" inverse="true">
+			<key>
+				<column name="PARAM_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysParameter" />
+		</set>
+		<set name="roleResourceRelationshipSet" inverse="true">
+			<key>
+				<column name="RESOURCE_ID" length="32" />
+			</key>
+			<one-to-many class="cn.digitalpublishing.po.SysRoleResourceRelationship" />
+		</set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<dao id="cn.digitalpublishing.dao.AccountDao">
+		<query id="getList">
+			<properties>id,name,pass,status,type,level</properties>
+			<fields>a.id,a.name,a.pass,a.status,a.type,a.level</fields>
+			<hql>from Account a </hql>
+			<conditions>
+				<!-- 条件永远成立 -->
+				<!-- 方式一 -->
+				<!-- 
+				<condition>
+					<conditions operation="FOREVER">
+						<condition>
+							<list type="param">
+								<param name="nameForever" type="java.lang.String" desc="名称"></param>
+							</list>
+							<hql>a.name = ?</hql>
+						</condition>
+						<condition>
+							<list type="param">
+								<param name="statusForever" type="java.lang.Integer" desc="状态"></param>
+							</list>
+							<hql>a.status = ?</hql>
+						</condition>
+					</conditions>
+				</condition>
+				 -->
+				<!-- 方式二 -->
+				<!-- 
+				<condition name="name" desc="名称">
+					<hql>a.status = 2 </hql>
+				</condition>
+				 -->
+				<!-- or关系 -->
+				<condition>
+					<conditions operation="OR">
+						<condition>
+							<list type="param">
+								<param name="typeOr" type="java.lang.Integer"></param>
+							</list>
+							<hql>a.type = ?</hql>
+						</condition>
+						<condition>
+							<list type="param">
+								<param name="levelOr" type="java.lang.Integer"></param>
+							</list>
+							<hql>a.level = ?</hql>
+						</condition>
+					</conditions>
+				</condition>
+				<!-- 子查询方式 -->
+				<!-- 
+				<condition>
+					<list type="param">
+						<param name="status" type="java.lang.String"></param>
+					</list>
+					<hql>exists (select * from account where name=? )</hql>
+				</condition>
+				<condition>
+					<list type="param">
+						<param name="pwd" type="java.lang.String"></param>
+					</list>
+					<hql>exists (select * from account where pwd =?)</hql>
+				</condition>
+				 -->
+				<!-- 默认and关系 -->
+				<condition>
+					<list type="param">
+						<param name="status" type="java.lang.Integer" desc="状态"></param>
+					</list>
+					<hql>a.status = ?</hql>
+				</condition>
+				<condition>
+					<list type="param">
+						<param name="type" type="java.lang.Integer" desc="类型"></param>
+					</list>
+					<hql>a.type = ?</hql>
+				</condition>
+				<condition>
+					<list type="param">
+						<param name="level" type="java.lang.Integer" desc="等级"></param>
+					</list>
+					<hql>a.level = ?</hql>
+				</condition>
+				<!-- Array方式传参 -->
+				<!-- 
+				<condition>
+					<list type="param">
+						<param name="type" type="java.lang.Integer" array="true"></param>
+					</list>
+					<hql>a.name not in </hql>
+				</condition>
+				 -->
+				<!-- like方式 -->
+				<condition>
+					<list type="param">
+						<param name="nameLike" relation="like" type="java.lang.String" desc="名称"></param>
+					</list>
+					<hql>a.name like ?</hql>
+				</condition>
+				<!-- 
+				<condition name="nameLike" relation="like" param="a.name" desc="名称" />
+				<condition name="nameNotEqual" relation="not equal" param="a.name" desc="名称" />
+				 -->
+			</conditions>
+			<group></group>
+			<order>order by a.name</order>
+			<className>cn.digitalpublishing.po.Account</className>
+		</query>
+		<!-- 
+		<query id="getCount">
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from Account a </hql>
+			<conditions>
+				<condition id="name" desc="名称">
+					a.name = ?
+				</condition>
+				<condition id="status" desc="状态">
+					a.status = ?
+				</condition>
+				<condition id="type" desc="类型">
+					a.type = ?
+				</condition>
+				<condition id="level" desc="等级">
+					a.level = ?
+				</condition>
+				<condition id="nameLike" relation="like" param="a.name" desc="名称" />
+				<condition id="nameNotEqual" relation="not equal" param="a.name" desc="名称" />
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Account</className>
+		</query>
+		<query id="getPagingList">
+			<properties>id,name,pass,status,type,level</properties>
+			<fields>a.id,a.name,a.pass,a.status,a.type,a.level</fields>
+			<hql>from Account a </hql>
+			<conditions>
+				<condition id="name" desc="名称">
+					a.name = ?
+				</condition>
+				<condition id="status" desc="状态">
+					a.status = ?
+				</condition>
+				<condition id="type" desc="类型">
+					a.type = ?
+				</condition>
+				<condition id="level" desc="等级">
+					a.level = ?
+				</condition>
+				<condition id="nameLike" relation="like" param="a.name" desc="名称" />
+				<condition id="nameNotEqual" relation="not equal" param="a.name" desc="名称" />
+			</conditions>
+			<group></group>
+			<order>order by a.name</order>
+			<className>cn.digitalpublishing.po.Account</className>
+		</query>
+		 -->
+	</dao>
+</web-query>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-query>
+	<!-- 传入参数xml文件格式如下: <?xml version="1.0" encoding="UTF-8"?>" <web-query> 
+		<queryparm> <ccsno>%</ccsno> <shipname>%</shipname> <stjobno>%</stjobno> 
+		<builder>%</builder> <yardno>%</yardno> <projectid>%</projectid> </queryparm> 
+		</web-query> -->
+	<!-- 主界面管理查询模块 -->
+	<dao id="cn.digitalpublishing.dao.AccountModuleRelationshipDao">
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+				<param name="hqlBean" type="cn.com.daxtech.framework.bean.HqlBean"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from SysAccountModuleRelationship a left join a.module b left join a.account c </hql>
+			<conditions>
+				<condition id="accountId" describe="账号ID">
+					<params type="param">
+						<param name="accountId" type="java.lang.String"></param>
+					</params>
+					<hql> c.id = ?</hql>
+				</condition>
+				<condition id="moduleId" describe="模块ID">
+					<params type="param">
+						<param name="moduleId" type="java.lang.String"></param>
+					</params>
+					<hql> b.id = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.SysAccountModuleRelationship</className>
+		</query>
+	</dao>
+</web-query>
